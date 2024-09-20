@@ -59,6 +59,15 @@
   background-color: rgba(6, 6, 7, 0.377);
   margin-top: 100px;
   display: flex;
+  height: auto;
+}
+
+.navbarcat {
+  position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Esto asegura que cubra toda la pantalla en el eje vertical */
 }
 
 .lineaseparadora {

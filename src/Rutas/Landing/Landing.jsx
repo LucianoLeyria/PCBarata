@@ -5,6 +5,7 @@ import banner from "../../assets/banner.png";
 import { Searchbar } from "../../Componentes/Searchbar/Searchbar";
 import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Card } from "../../Componentes/Card/Card";
+import Footer from "../../Componentes/Footer/Footer";
 
 export const Landing = () => {
   return (
@@ -53,6 +54,10 @@ export const Landing = () => {
           <Card />
           <Card />
         </div>
+      </div>
+
+      <div className={s.footer}>
+        <Footer />
       </div>
     </div>
   );
