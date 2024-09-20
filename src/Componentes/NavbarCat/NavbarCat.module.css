@@ -1,0 +1,43 @@
+.navbarcat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  width: 350px;
+}
+
+.navbarcat a {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  width: fit-content;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbarcat a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navbarcat a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffd700; /* Color dorado o el que prefieras */
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbarcat a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.navbarcat {
+  background-color: #1a253877;
+}
