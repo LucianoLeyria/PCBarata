@@ -10,6 +10,11 @@
 :root {
   --colordeFondo: #404d77;
   --degradadoColorDeFondo: linear-gradient(#000000, var(--colordeFondo));
+  --degradadoColorDeFondoProductos: linear-gradient(
+    #000000 -25%,
+    var(--colordeFondo)
+  );
+  --colorLineaSeparadora: #42bed4f6;
 }
 
 body {

@@ -1,0 +1,15 @@
+.navbar {
+  padding: 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  width: 210px;
+}
+
+.titleproductos {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+}

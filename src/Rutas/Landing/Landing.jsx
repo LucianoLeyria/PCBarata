@@ -1,22 +1,16 @@
 import React from "react";
-import icon from "../../assets/icon.png";
 import s from "./Landing.module.css";
 import banner from "../../assets/banner.png";
-import { Searchbar } from "../../Componentes/Searchbar/Searchbar";
 import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Card } from "../../Componentes/Card/Card";
 import Footer from "../../Componentes/Footer/Footer";
+import { productosDestacados } from "../../Mocks/ProductosDestacados";
+import { Navbar } from "../../Componentes/Navbar/Navbar";
 
 export const Landing = () => {
   return (
     <div>
-      <nav className={s.navbar}>
-        <img className={s.icon} src={icon} alt="icon" />
-        <Searchbar />
-        <a href="">
-          <p className={s.titleproductos}>PRODUCTOS</p>
-        </a>
-      </nav>
+      <Navbar />
       <div className={s.rgbtop}></div>
       <div className={s.banner}>
         <a href="">
@@ -32,27 +26,17 @@ export const Landing = () => {
           <NavbarCat />
         </div>
         <div className={s.lineaseparadora}></div>
+
         <div className={s.cards}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {productosDestacados.map((p) => (
+            <Card
+              id={p.id}
+              nombre={p.nombre}
+              precio={p.precio}
+              img={p.img}
+              categoria={p.categoria}
+            />
+          ))}
         </div>
       </div>
 

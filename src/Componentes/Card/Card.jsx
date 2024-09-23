@@ -1,14 +1,13 @@
 import React from "react";
 import s from "./Card.module.css";
-import placa from "../../assets/placa.jpg";
 import { FaLocationArrow } from "react-icons/fa6";
 
-export const Card = () => {
+export const Card = ({ id, nombre, precio, img, categoria }) => {
   return (
     <div className={s.divCard}>
-      <img className={s.imgcard} src={placa} alt="" />
-      <h3 className={s.namecard}>GeForce RTX 3070 GIGABYTE</h3>
-      <p className={s.pricecard}>$428.235</p>
+      <img className={s.imgcard} src={img} alt="" />
+      <h3 className={s.namecard}>{nombre}</h3>
+      <p className={s.pricecard}>{precio}</p>
       <button className={s.buttoncard}>
         Adquirir
         <FaLocationArrow />

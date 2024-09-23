@@ -14,7 +14,7 @@
   width: 100%;
   border: 0;
   height: 2px; /* Grosor de la línea */
-  background-color: #5bc0be; /* Color de la línea */
+  background-color: var(--colorLineaSeparadora); /* Color de la línea */
   margin-bottom: 50px; /* Espaciado debajo de la línea */
 }
 
@@ -49,7 +49,7 @@
 }
 
 .quickLinks a {
-  color: #5bc0be;
+  color: var(--colorLineaSeparadora);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;

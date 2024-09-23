@@ -1,0 +1,168 @@
+.productosgral {
+  display: flex;
+  flex-direction: column;
+  background: var(--degradadoColorDeFondoProductos);
+}
+
+.navbarCatyProductos {
+  display: flex;
+  height: auto;
+}
+
+.lineaseparadora {
+  height: auto;
+  width: 15px;
+  background-color: var(--colorLineaSeparadora);
+}
+
+.rgbtop,
+.rgbbot {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 0, 255, 1) 18%,
+    rgba(0, 0, 255, 1) 30%,
+    rgba(0, 240, 255, 1) 45%,
+    rgba(0, 255, 0, 1) 63%,
+    rgba(255, 255, 0, 1) 80%,
+    rgba(255, 120, 0, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  background-size: 300% 300%; /* Aumentar el tamaño para permitir movimiento */
+  animation: rgbBg 10s linear infinite; /* Ajustar el tiempo según prefieras */
+  height: 2px;
+  position: relative;
+}
+
+@keyframes rgbBg {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.rgbbot {
+  position: relative;
+  bottom: 4px;
+}
+
+.divtitulocategorias {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.titulocategorias {
+  color: white;
+}
+
+.productos {
+  gap: 90px;
+  padding: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttonsfiltros {
+  justify-content: end;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 8px;
+  flex-wrap: wrap; /* Permite que los botones se ajusten en varias líneas si es necesario */
+}
+
+.buttonfiltro {
+  background-color: #1b1f38;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  margin: 5px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  display: flex; /* Para alinear el icono y el texto */
+  align-items: center;
+  justify-content: center; /* Centra el contenido */
+}
+
+.buttonfiltro:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0px 12px rgb(255, 255, 255);
+}
+
+.buttonfiltropresionado {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0px 12px rgb(255, 255, 255);
+}
+
+.icon {
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+  font-size: 20px; /* Ajusta el tamaño del icono */
+  color: #ffd700; /* Color del icono */
+}
+
+.paginado {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 20px 0;
+  gap: 15px;
+  user-select: none;
+  width: 100%;
+}
+
+.containerClassName {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  list-style: none;
+}
+
+.pageClassName {
+  color: white;
+  background-color: var(--colorLineaSeparadora); /* Color vibrante */
+  padding: 12px 20px;
+  border-radius: 5px; /* Bordes muy redondeados */
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  position: relative; /* Para el efecto de sombra */
+}
+
+.pageClassName:hover {
+  background-color: #ffd700;
+  transform: translateY(-3px);
+}
+
+.pageClassName.active {
+  background-color: #000000; /* Color activo */
+}
+
+.nextClassName,
+.previousClassName,
+.breakClassName {
+  padding: 12px 20px;
+  background-color: var(--colorLineaSeparadora); /* Color vibrante */
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.nextClassName:hover,
+.previousClassName:hover,
+.breakClassName:hover {
+  background-color: #ffd700;
+  transform: translateY(-3px);
+}
