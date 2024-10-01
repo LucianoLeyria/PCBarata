@@ -31,6 +31,7 @@ export const Landing = () => {
       <div className={s.divtituloproductosdestacados}>
         <h1 className={s.productosdestacados}>🔥 PRODUCTOS DESTACADOS 🔥</h1>
       </div>
+      <div className={s.rgbbot}></div>
       <div className={s.navbarcatycards}>
         <div className={s.navbarcat}>
           <NavbarCat />

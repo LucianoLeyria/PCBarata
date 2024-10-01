@@ -40,7 +40,6 @@
 
 .navbarcatycards {
   background-color: rgba(6, 6, 7, 0.377);
-  margin-top: 100px;
   display: flex;
   height: auto;
 }
@@ -72,6 +71,7 @@
 
 .productosdestacados {
   color: white;
+  margin-bottom: 90px;
 }
 
 .cards {

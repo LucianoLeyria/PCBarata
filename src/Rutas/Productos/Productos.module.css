@@ -30,7 +30,7 @@
   );
   background-size: 300% 300%; /* Aumentar el tamaño para permitir movimiento */
   animation: rgbBg 10s linear infinite; /* Ajustar el tiempo según prefieras */
-  height: 2px;
+  height: 4px;
   position: relative;
 }
 
