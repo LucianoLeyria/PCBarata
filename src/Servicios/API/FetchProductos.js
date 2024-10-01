@@ -7,9 +7,15 @@ export const getProductosDestacados = async () => {
   return productosDestacados;
 };
 
-export const getProductos = async ({ categoria, orden, nombre }) => {
+export const getProductos = async ({
+  categoria,
+  orden,
+  nombre,
+  paginaActual,
+  cantidadPorPag,
+}) => {
   const response = await fetch(
-    `${urlBack}/productos/generales?categoria=${categoria}&orden=${orden}&nombre=${nombre}`
+    `${urlBack}/productos/generales?categoria=${categoria}&orden=${orden}&nombre=${nombre}&paginaActual=${paginaActual}&cantidadPorPag=${cantidadPorPag}`
   );
   console.log("Response=", response);
   const productosGeneral = await response.json();

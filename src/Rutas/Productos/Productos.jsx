@@ -6,7 +6,7 @@ import { Navbar } from "../../Componentes/Navbar/Navbar";
 import { useParams } from "react-router-dom";
 import Footer from "../../Componentes/Footer/Footer";
 import ReactPaginate from "react-paginate";
-import { FaSortAlphaDown, FaSortAlphaUp, FaDollarSign } from "react-icons/fa"; // Importa los íconos que necesitas
+import { FaSortAlphaDown, FaSortAlphaUp, FaDollarSign } from "react-icons/fa";
 import { getProductos } from "../../Servicios/API/FetchProductos.js";
 import { mapearCategorias } from "../../Servicios/API/Datamap.js";
 import { Loader } from "../../Componentes/Loader/Loader";
@@ -16,23 +16,30 @@ export const Productos = () => {
   const [orden, setOrden] = useState("");
   const [productos, setProductos] = useState([]);
   const [loading, setLoader] = useState(true);
+  const [paginaActual, setPaginaActual] = useState(1);
+  const [totalPaginas, setTotalPaginas] = useState(0);
 
   useEffect(() => {
+    setLoader(true);
     getProductos({
       categoria: mapearCategorias[categoria],
       orden: orden,
       nombre: "",
-    }).then((productos) => {
-      setProductos(productos);
+      cantidadPorPag: 10,
+      paginaActual: Math.max(1, Math.min(paginaActual, totalPaginas)), // Mantener en el rango
+    }).then((data) => {
+      console.log(data);
+      setProductos(data.productos);
+      setTotalPaginas(data.totalPaginas);
       setLoader(false);
     });
-  }, [orden]);
+  }, [orden, paginaActual]);
 
   const handlePageClick = (event) => {
-    console.log(event);
+    const selectedPage = event.selected + 1; // ReactPaginate usa índice base 0
+    setPaginaActual(selectedPage);
+    console.log("Selected page:", selectedPage);
   };
-  const itemsPerPage = 1;
-  const pageCount = Math.ceil(productos.length / itemsPerPage);
 
   return (
     <div className={s.productosgral}>
@@ -48,7 +55,7 @@ export const Productos = () => {
         </div>
         <div className={s.lineaseparadora}></div>
         <div className={s.productos}>
-          {loading === true ? (
+          {loading ? (
             <div className={s.loader}>
               <Loader />
             </div>
@@ -99,6 +106,7 @@ export const Productos = () => {
               <div className={s.productoscards}>
                 {productos.map((p) => (
                   <Card
+                    key={p.id} // Agrega una clave única para cada Card
                     id={p.id}
                     nombre={p.nombre}
                     img={p.img}
@@ -112,8 +120,8 @@ export const Productos = () => {
                   breakLabel="..."
                   nextLabel="Siguiente"
                   nextClassName={s.nextClassName}
-                  onPageChange={handlePageClick}
-                  pageCount={pageCount}
+                  onPageChange={handlePageClick} // Esto debería llamar a tu función al cambiar la página
+                  pageCount={totalPaginas} // Asegúrate de que totalPaginas sea correcto
                   previousLabel="Anterior"
                   previousClassName={s.previousClassName}
                   renderOnZeroPageCount={null}
@@ -127,7 +135,6 @@ export const Productos = () => {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );
