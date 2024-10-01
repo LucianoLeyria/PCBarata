@@ -9,11 +9,12 @@
   padding: 20px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   justify-content: space-between;
+  height: 400px;
 }
 
 .divCard:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 8px 8px 15px rgba(255, 255, 255, 0.993);
+  box-shadow: 8px 8px 15px rgba(48, 139, 127, 0.555);
   border-color: #ffd700;
 }
 

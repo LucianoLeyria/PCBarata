@@ -11,7 +11,7 @@
 
 .lineaseparadora {
   height: auto;
-  width: 15px;
+  width: 3px;
   background-color: var(--colorLineaSeparadora);
 }
 
@@ -48,7 +48,7 @@
 
 .rgbbot {
   position: relative;
-  bottom: 4px;
+  bottom: 2px;
 }
 
 .divtitulocategorias {
@@ -63,10 +63,16 @@
 }
 
 .productos {
-  gap: 90px;
-  padding: 70px;
+  padding: 20px 70px;
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.productoscards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 90px;
 }
 
 .buttonsfiltros {
@@ -121,6 +127,7 @@
   gap: 15px;
   user-select: none;
   width: 100%;
+  height: 45px;
 }
 
 .containerClassName {
@@ -165,4 +172,9 @@
 .breakClassName:hover {
   background-color: #ffd700;
   transform: translateY(-3px);
+}
+
+.loader {
+  margin-top: 200px;
+  margin-left: 700px;
 }

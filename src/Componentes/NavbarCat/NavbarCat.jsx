@@ -10,11 +10,11 @@ export const NavbarCat = () => {
       <a href="/productos/Placas de Video">Placas de Video</a>
       <a href="/productos/Memorias RAM">Memorias RAM</a>
       <a href="/productos/Almacenamiento">Almacenamiento</a>
-      <a href="/productos/Refrigeracion">Refrigeración</a>
+      <a href="/productos/Refrigeración">Refrigeración</a>
       <a href="/productos/Gabinetes">Gabinetes</a>
       <a href="/productos/Fuentes">Fuentes</a>
       <a href="/productos/Monitores">Monitores</a>
-      <a href="/productos/Perifericos">Periféricos</a>
+      <a href="/productos/Periféricos">Periféricos</a>
       <a href="/productos/Sillas Gamers">Sillas Gamers</a>
       <a href="/productos/Conectividad">Conectividad</a>
     </div>

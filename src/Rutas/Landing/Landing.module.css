@@ -55,7 +55,7 @@
 
 .lineaseparadora {
   height: auto;
-  width: 15px;
+  width: 5px;
   background-color: var(--colorLineaSeparadora);
 }
 

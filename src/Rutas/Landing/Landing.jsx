@@ -1,13 +1,23 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import s from "./Landing.module.css";
 import banner from "../../assets/banner.png";
 import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Card } from "../../Componentes/Card/Card";
 import Footer from "../../Componentes/Footer/Footer";
-import { productosDestacados } from "../../Mocks/ProductosDestacados";
 import { Navbar } from "../../Componentes/Navbar/Navbar";
+import { Loader } from "../../Componentes/Loader/Loader";
+import { getProductosDestacados } from "../../Servicios/API/FetchProductos.js";
 
 export const Landing = () => {
+  const [loading, setLoader] = useState(false);
+  const [productosDestacados, setProductosDestacados] = useState([]);
+
+  useEffect(() => {
+    getProductosDestacados().then((arrayProductos) => {
+      setProductosDestacados(arrayProductos);
+    });
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -43,6 +53,7 @@ export const Landing = () => {
       <div className={s.footer}>
         <Footer />
       </div>
+      {loading === true ? <Loader /> : null}
     </div>
   );
 };
