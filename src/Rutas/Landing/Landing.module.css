@@ -49,7 +49,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  height: 100vh; /* Esto asegura que cubra toda la pantalla en el eje vertical */
+  height: 100%; /* Esto asegura que cubra toda la pantalla en el eje vertical */
 }
 
 .lineaseparadora {
