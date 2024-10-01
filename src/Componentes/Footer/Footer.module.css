@@ -49,12 +49,32 @@
 }
 
 .quickLinks a {
-  color: var(--colorLineaSeparadora);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s ease;
+  color: #42bed4f6; /* Color original de los enlaces */
+  text-decoration: none; /* Eliminar subrayado */
+  transition: color 0.3s ease; /* Transición suave para el color */
 }
 
 .quickLinks a:hover {
-  color: #ffd700;
+  color: #42bed4f6; /* Mantiene el color original al pasar el mouse */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px; /* Reduce el padding en pantallas más pequeñas */
+  }
+
+  .socialMedia {
+    align-items: center; /* Centra los íconos social media */
+  }
+
+  .quickLinks {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra los enlaces rápidos */
+    margin-top: 20px; /* Aumenta el margen superior */
+  }
+
+  .quickLinks a {
+    font-size: 12px; /* Reduce el tamaño de fuente para enlaces rápidos */
+  }
 }

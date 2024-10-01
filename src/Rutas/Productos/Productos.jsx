@@ -26,11 +26,11 @@ export const Productos = () => {
       orden: orden,
       nombre: "",
       cantidadPorPag: 10,
-      paginaActual: Math.max(1, Math.min(paginaActual, totalPaginas)), // Mantener en el rango
+      paginaActual: paginaActual,
     }).then((data) => {
       console.log(data);
       setProductos(data.productos);
-      setTotalPaginas(data.totalPaginas);
+      setTotalPaginas(Math.ceil(data.totalProductos / 10));
       setLoader(false);
     });
   }, [orden, paginaActual]);
@@ -120,7 +120,7 @@ export const Productos = () => {
                   breakLabel="..."
                   nextLabel="Siguiente"
                   nextClassName={s.nextClassName}
-                  onPageChange={handlePageClick} // Esto debería llamar a tu función al cambiar la página
+                  onPageChange={handlePageClick}
                   pageCount={totalPaginas} // Asegúrate de que totalPaginas sea correcto
                   previousLabel="Anterior"
                   previousClassName={s.previousClassName}
@@ -129,6 +129,8 @@ export const Productos = () => {
                   containerClassName={s.containerClassName}
                   breakClassName={s.breakClassName}
                   pageRangeDisplayed={5}
+                  forcePage={paginaActual - 1} // Cambia a paginaActual - 1
+                  activeClassName={s.activeClassName} // Añade esta propiedad para resaltar la página activa
                 />
               </div>
             </>

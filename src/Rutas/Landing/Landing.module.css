@@ -80,3 +80,27 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+  .navbarcatycards {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    align-items: center; /* Centra el contenido */
+  }
+  .navbarcat {
+    position: relative; /* Elimina el comportamiento sticky en pantallas más pequeñas */
+    height: auto; /* Permite que la altura se ajuste al contenido */
+  }
+  .divtituloproductosdestacados {
+    justify-content: center; /* Asegura que el contenido se centre */
+    margin-top: 40px; /* Ajusta el margen superior si es necesario */
+    text-align: center; /* Asegura que el texto esté centrado */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  }
+  .cards {
+    gap: 90px;
+    padding: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

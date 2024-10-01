@@ -182,3 +182,49 @@
   margin-top: 200px;
   margin-left: 700px;
 }
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .navbarCatyProductos {
+    flex-direction: column; /* Cambia a disposición en columna en pantallas más pequeñas */
+    align-items: center; /* Centra los elementos en el contenedor */
+  }
+  .buttonsfiltros {
+    justify-content: center; /* Centra los botones en pantallas más pequeñas */
+    padding: 20px;
+  }
+
+  .productos {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonfiltro {
+    font-size: 12px; /* Disminuye el tamaño de fuente en pantallas más pequeñas */
+    padding: 1px; /* Reduce el padding para que los botones no sean tan grandes */
+  }
+  .productoscards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonfiltro {
+    font-size: 12px; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
+    padding: 6px; /* Menor padding para ajustar mejor en pantallas pequeñas */
+  }
+  .productoscards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 100px;
+    justify-content: center;
+  }
+  .productos {
+    padding: 0;
+  }
+}

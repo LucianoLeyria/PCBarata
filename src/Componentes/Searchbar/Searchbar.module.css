@@ -48,3 +48,31 @@
   top: 10px;
   cursor: pointer;
 }
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .inputsearchbar {
+    width: 100%; /* Hace que la barra de búsqueda ocupe el ancho completo en pantallas pequeñas */
+    font-size: 18px; /* Ajusta el tamaño de fuente */
+    height: 45px; /* Ajusta la altura de la barra de búsqueda */
+  }
+
+  .lupa {
+    font-size: 20px; /* Reduce el tamaño del icono en pantallas más pequeñas */
+    top: 8px; /* Ajusta la posición del icono */
+    right: 15px; /* Ajusta el margen derecho del icono */
+  }
+}
+
+@media (max-width: 480px) {
+  .inputsearchbar {
+    font-size: 16px; /* Reduce aún más el tamaño de fuente */
+    height: 40px; /* Ajusta la altura de la barra de búsqueda */
+  }
+
+  .lupa {
+    font-size: 18px; /* Reduce aún más el tamaño del icono */
+    top: 7px; /* Ajusta la posición del icono */
+    right: 10px; /* Ajusta el margen derecho del icono */
+  }
+}
