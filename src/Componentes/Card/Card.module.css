@@ -71,7 +71,7 @@
 /* Estilos Responsivos */
 @media (max-width: 768px) {
   .divCard {
-    width: 80%; /* Hacer las tarjetas más pequeñas en pantallas medianas */
+    width: 60%; /* Hacer las tarjetas más pequeñas en pantallas medianas */
     margin: 15px 0;
     height: auto; /* Permitir ajuste automático de la altura */
   }
