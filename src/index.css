@@ -1,5 +1,8 @@
 /* importo fuente Roboto*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   padding: 0;
@@ -8,8 +11,8 @@
 }
 
 :root {
-  --colordeFondo: #404d77;
-  --degradadoColorDeFondo: linear-gradient(#000000, var(--colordeFondo));
+  background-color: #131922;
+  --colordeFondo: #0736e269;
   --degradadoColorDeFondoProductos: linear-gradient(
     #000000 -25%,
     var(--colordeFondo)

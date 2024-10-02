@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-import s from "./NavbarCat.module.css";
 
 export const NavbarCat = () => {
   const [isOpen, setIsOpen] = useState(true); // Estado inicial abierto en versión PC
@@ -11,27 +9,147 @@ export const NavbarCat = () => {
 
   return (
     <div>
-      {/* Visible solo en responsive */}
-      <h1 className={s.toggleTitle} onClick={toggleCategories}>
-        Categorías {isOpen ? <FaChevronDown /> : <FaChevronRight />}
-      </h1>
+      <button
+        data-drawer-target="default-sidebar"
+        data-drawer-toggle="default-sidebar"
+        aria-controls="default-sidebar"
+        type="button"
+        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+          ></path>
+        </svg>
+      </button>
 
-      {/* En la versión de escritorio el sidebar siempre es visible */}
-      <div className={`${s.navbarcat} ${!isOpen ? s.closed : ""}`}>
-        <a href="/productos/Notebooks">Notebooks</a>
-        <a href="/productos/Procesadores">Procesadores</a>
-        <a href="/productos/Mothers">Mothers</a>
-        <a href="/productos/Placas de Video">Placas de Video</a>
-        <a href="/productos/Memorias RAM">Memorias RAM</a>
-        <a href="/productos/Almacenamiento">Almacenamiento</a>
-        <a href="/productos/Refrigeración">Refrigeración</a>
-        <a href="/productos/Gabinetes">Gabinetes</a>
-        <a href="/productos/Fuentes">Fuentes</a>
-        <a href="/productos/Monitores">Monitores</a>
-        <a href="/productos/Periféricos">Periféricos</a>
-        <a href="/productos/Sillas Gamers">Sillas Gamers</a>
-        <a href="/productos/Conectividad">Conectividad</a>
-      </div>
+      <aside
+        id="default-sidebar"
+        class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar"
+      >
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+          <ul class="space-y-2 font-medium">
+            <li>
+              <a
+                href="/productos/Notebooks"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="ms-3">Notebooks</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Procesadores"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Procesadores</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Mothers"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Mothers</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Placas de Video"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">
+                  Placas de Video
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Memorias RAM"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Memorias RAM</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Almacenamiento"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">
+                  Almacenamiento
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Refrigeración"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Refrigeración</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Gabinetes"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Gabinetes</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Fuentes"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Fuentes</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Monitores"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Monitores</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Periféricos"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Periféricos</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Sillas Gamers"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Sillas Gamers</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/productos/Conectividad"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <span class="flex-1 ms-3 whitespace-nowrap">Conectividad</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
     </div>
   );
 };

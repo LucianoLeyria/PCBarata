@@ -42,26 +42,34 @@ export const Productos = () => {
   };
 
   return (
-    <div className={s.productosgral}>
+    <div class="flex flex-col">
       <Navbar />
       <div className={s.rgbtop}></div>
-      <div className={s.divtitulocategorias}>
-        <h1 className={s.titulocategorias}>🔥 {categoria.toUpperCase()} 🔥</h1>
+
+      <div class="flex justify-center p-8">
+        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
+          🔥{" "}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+            {categoria.toUpperCase()}
+          </span>{" "}
+          🔥
+        </h1>
       </div>
+
       <div className={s.rgbbot}></div>
-      <div className={s.navbarCatyProductos}>
-        <div className={s.navbarCat}>
+      <div class="flex h-auto">
+        <div class="sticky top-0 left-0 h-full">
           <NavbarCat />
         </div>
-        <div className={s.lineaseparadora}></div>
-        <div className={s.productos}>
+        <div class="h-auto w-[3px] bg-[var(--colorLineaSeparadora)]"></div>
+        <div class="p-5 px-[20px] flex flex-wrap gap-5">
           {loading ? (
             <div className={s.loader}>
               <Loader />
             </div>
           ) : (
             <>
-              <div className={s.buttonsfiltros}>
+              <div class="flex justify-end items-center w-full mb-[20px] gap-[8px] flex-wrap">
                 <button
                   onClick={() =>
                     setOrden(orden === "nombre_DESC" ? "" : "nombre_DESC")
@@ -103,7 +111,7 @@ export const Productos = () => {
                   <FaDollarSign className={s.icon} /> Mayor Precio
                 </button>
               </div>
-              <div className={s.productoscards}>
+              <div class="flex flex-wrap gap-20 p-6">
                 {productos.map((p) => (
                   <Card
                     key={p.id} // Agrega una clave única para cada Card
@@ -115,22 +123,22 @@ export const Productos = () => {
                   />
                 ))}
               </div>
-              <div className={s.paginado}>
+              <div class="flex justify-center my-5 gap-4 select-none w-full h-[45px]">
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel="Siguiente"
-                  nextClassName={s.nextClassName}
+                  nextClassName="text-lg flex items-center justify-center px-3 p-5 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                   onPageChange={handlePageClick}
                   pageCount={totalPaginas} // Asegúrate de que totalPaginas sea correcto
                   previousLabel="Anterior"
-                  previousClassName={s.previousClassName}
+                  previousClassName=" p-5 text-lg flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                   renderOnZeroPageCount={null}
-                  pageClassName={s.pageClassName}
-                  containerClassName={s.containerClassName}
-                  breakClassName={s.breakClassName}
+                  containerClassName=" p-5 inline-flex -space-x-px text-sm"
+                  breakClassName="text-lg flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                   pageRangeDisplayed={5}
                   forcePage={paginaActual - 1} // Cambia a paginaActual - 1
-                  activeClassName={s.activeClassName} // Añade esta propiedad para resaltar la página activa
+                  activeClassName=" p-5 text-lg flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white" // Añade esta propiedad para resaltar la página activa
+                  pageClassName=" p-5 text-lg flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 />
               </div>
             </>
