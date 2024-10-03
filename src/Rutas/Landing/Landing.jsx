@@ -44,7 +44,7 @@ export const Landing = () => {
 
             <div class="duration-700 ease-in-out" data-carousel-item>
               <img
-                src="https://fullh4rd.com.ar/adminrgb/img/banner/173.png"
+                src="https://www.gezatek.com.ar/uploads/27-08-2024-10-08-46-20-05-2024-01-05-58-11-01-2024-12-01-35-banner.png"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt="..."
               />
@@ -52,7 +52,7 @@ export const Landing = () => {
 
             <div class="duration-700 ease-in-out" data-carousel-item>
               <img
-                src="https://fullh4rd.com.ar/adminrgb/img/banner/175.png"
+                src="https://www.gezatek.com.ar/uploads/27-08-2024-10-08-46-20-05-2024-01-05-58-11-01-2024-12-01-35-banner.png"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt="..."
               />
