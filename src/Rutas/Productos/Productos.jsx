@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom"; // Importar useLocation
 import s from "./Productos.module.css";
 import { Card } from "../../Componentes/Card/Card";
 import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Navbar } from "../../Componentes/Navbar/Navbar";
-import { useParams } from "react-router-dom";
 import Footer from "../../Componentes/Footer/Footer";
 import ReactPaginate from "react-paginate";
 import { FaSortAlphaDown, FaSortAlphaUp, FaDollarSign } from "react-icons/fa";
@@ -13,37 +13,55 @@ import { Loader } from "../../Componentes/Loader/Loader";
 
 export const Productos = () => {
   let { categoria } = useParams();
+  const location = useLocation(); // Obtenemos la ubicación actual
   const [orden, setOrden] = useState("");
   const [productos, setProductos] = useState([]);
   const [loading, setLoader] = useState(true);
   const [paginaActual, setPaginaActual] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(0);
+  const [nombre, setNombre] = useState("");
+  const cantidadDeProdsPorPaginas = 20;
+
+  // Obtener el valor del query param 'nombre'
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const nombreParam = queryParams.get("nombre");
+    if (nombreParam) {
+      setNombre(nombreParam); // Si el parámetro existe, lo guardamos en el estado
+    }
+  }, [location.search]);
 
   useEffect(() => {
     setLoader(true);
     getProductos({
       categoria: mapearCategorias[categoria],
       orden: orden,
-      nombre: "",
-      cantidadPorPag: 10,
+      nombre: nombre,
+      cantidadPorPag: cantidadDeProdsPorPaginas,
       paginaActual: paginaActual,
     }).then((data) => {
       console.log(data);
       setProductos(data.productos);
-      setTotalPaginas(Math.ceil(data.totalProductos / 10));
+      setTotalPaginas(
+        Math.ceil(data.totalProductos / cantidadDeProdsPorPaginas)
+      );
       setLoader(false);
     });
-  }, [orden, paginaActual]);
+  }, [orden, paginaActual, nombre]);
+
+  const busquedaPorNombre = (nombre) => {
+    setNombre(nombre);
+  };
 
   const handlePageClick = (event) => {
-    const selectedPage = event.selected + 1; // ReactPaginate usa índice base 0
+    const selectedPage = event.selected + 1;
     setPaginaActual(selectedPage);
     console.log("Selected page:", selectedPage);
   };
 
   return (
     <div class="flex flex-col">
-      <Navbar />
+      <Navbar busquedaPorNombre={busquedaPorNombre} />
       <div className={s.rgbtop}></div>
 
       <div class="flex justify-center p-8">
@@ -120,6 +138,7 @@ export const Productos = () => {
                     img={p.img}
                     categoria={p.categoria}
                     precio={p.precio}
+                    tienda={p.tienda}
                   />
                 ))}
               </div>

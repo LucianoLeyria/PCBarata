@@ -7,10 +7,16 @@ import Footer from "../../Componentes/Footer/Footer";
 import { Navbar } from "../../Componentes/Navbar/Navbar";
 import { Loader } from "../../Componentes/Loader/Loader";
 import { getProductosDestacados } from "../../Servicios/API/FetchProductos.js";
+import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
   const [loading, setLoader] = useState(false);
   const [productosDestacados, setProductosDestacados] = useState([]);
+  const navigate = useNavigate();
+
+  const navegarHaciaCategorias = (nombre) => {
+    navigate(`/productos/Todos?nombre=${nombre}`);
+  };
 
   useEffect(() => {
     getProductosDestacados().then((arrayProductos) => {
@@ -20,7 +26,7 @@ export const Landing = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar busquedaPorNombre={navegarHaciaCategorias} />
       <div className={s.rgbtop}></div>
       <div className={s.banner}>
         <div
@@ -181,6 +187,7 @@ export const Landing = () => {
               precio={p.precio}
               img={p.img}
               categoria={p.categoria}
+              tienda={p.tienda}
             />
           ))}
         </div>

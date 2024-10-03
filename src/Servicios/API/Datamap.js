@@ -12,4 +12,5 @@ export const mapearCategorias = {
   Periféricos: "perifericos",
   "Sillas Gamers": "sillas",
   Conectividad: "conectividad",
+  Todos: "",
 };

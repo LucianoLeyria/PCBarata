@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import icon from "../../assets/icon.png";
 
-export const Navbar = () => {
+export const Navbar = ({ busquedaPorNombre }) => {
+  const [busqueda, setBusqueda] = useState("");
+
   return (
     <div>
       <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -9,9 +11,8 @@ export const Navbar = () => {
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src={icon} class="h-[150px] w-21" alt="PCBarata Logo" />
           </a>
-          <form class="w-[350px] ml-auto">
+          <form class="w-[350px] ml-auto" onSubmit={(e) => e.preventDefault()}>
             {" "}
-            {/* Añadido ml-auto aquí */}
             <label
               for="default-search"
               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -37,6 +38,9 @@ export const Navbar = () => {
                 </svg>
               </div>
               <input
+                onChange={(e) => {
+                  setBusqueda(e.target.value);
+                }}
                 type="search"
                 id="default-search"
                 class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -44,6 +48,7 @@ export const Navbar = () => {
                 required
               />
               <button
+                onClick={() => busquedaPorNombre(busqueda)}
                 type="submit"
                 class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
