@@ -25,7 +25,7 @@ export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
           </a>
           <div className="flex items-center mt-2.5 mb-5">
             <div className="flex items-center space-x-1 rtl:space-x-reverse">
-              <img class="w-15 h-8 mt-3" src={datamapTienda[tienda]} />
+              <img className="w-15 h-8 mt-3" src={datamapTienda[tienda]} />
             </div>
           </div>
           <div className="flex items-center justify-between">
