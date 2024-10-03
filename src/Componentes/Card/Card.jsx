@@ -1,13 +1,10 @@
 import React from "react";
-import logocompragamer from "../../assets/logocompragamer.png";
-import logofullhard from "../../assets/logofullhard.png";
-import logogezatek from "../../assets/logogezatek.png";
 
 export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
   const datamapTienda = {
-    compragamer: logocompragamer,
-    fullhard: logofullhard,
-    gezatek: logogezatek,
+    compragamer: "https://imagenes.compragamer.com/assets/logos/logo-fix.png",
+    fullhard: "https://fullh4rd.com.ar/img/logo-fh-lg.png",
+    gezatek: "https://www.gezatek.com.ar/images/gezatek-logo.png",
   };
 
   return (
