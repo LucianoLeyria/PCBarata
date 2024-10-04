@@ -21,6 +21,7 @@ export const Productos = () => {
   const [totalPaginas, setTotalPaginas] = useState(0);
   const [nombre, setNombre] = useState("");
   const cantidadDeProdsPorPaginas = 20;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640); // Cambia 640 según tu breakpoint
 
   // Obtener el valor del query param 'nombre'
   useEffect(() => {
@@ -64,7 +65,7 @@ export const Productos = () => {
       <Navbar busquedaPorNombre={busquedaPorNombre} />
       <div className={s.rgbtop}></div>
 
-      <div class="flex justify-center p-8">
+      <div className="flex justify-center p-8 text-center">
         <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
           🔥{" "}
           <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
@@ -75,8 +76,12 @@ export const Productos = () => {
       </div>
 
       <div className={s.rgbbot}></div>
-      <div class="flex h-auto">
-        <div class="sticky top-0 left-0 h-full">
+      <div className={`flex ${isMobile ? "flex-col" : "flex-row"} h-auto`}>
+        <div
+          className={`${
+            isMobile ? "w-100% h-auto" : "sticky top-0 left-0 h-full"
+          }`}
+        >
           <NavbarCat />
         </div>
         <div class="h-auto w-[3px] bg-[var(--colorLineaSeparadora)]"></div>
@@ -129,7 +134,7 @@ export const Productos = () => {
                   <FaDollarSign className={s.icon} /> Mayor Precio
                 </button>
               </div>
-              <div class="flex flex-wrap gap-20 p-6">
+              <div className="flex flex-wrap justify-center gap-10 lg:gap-20 md:gap-20 p-6">
                 {productos.map((p) => (
                   <Card
                     key={p.id} // Agrega una clave única para cada Card
@@ -164,7 +169,7 @@ export const Productos = () => {
           )}
         </div>
       </div>
-      <Footer />
+      {loading === false && <Footer />}
     </div>
   );
 };
