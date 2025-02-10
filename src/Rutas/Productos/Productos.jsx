@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom"; // Importar useLocation
 import s from "./Productos.module.css";
 import { Card } from "../../Componentes/Card/Card";
@@ -6,7 +6,12 @@ import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Navbar } from "../../Componentes/Navbar/Navbar";
 import Footer from "../../Componentes/Footer/Footer";
 import ReactPaginate from "react-paginate";
-import { FaSortAlphaDown, FaSortAlphaUp, FaDollarSign } from "react-icons/fa";
+import {
+  FaSortAlphaDown,
+  FaSortAlphaUp,
+  FaDollarSign,
+  FaSearch,
+} from "react-icons/fa"; // Importar FaSearch
 import { getProductos } from "../../Servicios/API/FetchProductos.js";
 import { mapearCategorias } from "../../Servicios/API/Datamap.js";
 import { Loader } from "../../Componentes/Loader/Loader";
@@ -21,7 +26,7 @@ export const Productos = () => {
   const [totalPaginas, setTotalPaginas] = useState(0);
   const [nombre, setNombre] = useState("");
   const cantidadDeProdsPorPaginas = 20;
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640); // Cambia 640 según tu breakpoint
+  const [isMobile] = useState(window.innerWidth < 640); // Cambia 640 según tu breakpoint
 
   // Obtener el valor del query param 'nombre'
   useEffect(() => {
@@ -48,7 +53,7 @@ export const Productos = () => {
       );
       setLoader(false);
     });
-  }, [orden, paginaActual, nombre]);
+  }, [orden, paginaActual, nombre, categoria]);
 
   const busquedaPorNombre = (nombre) => {
     setNombre(nombre);
@@ -61,14 +66,14 @@ export const Productos = () => {
   };
 
   return (
-    <div class="flex flex-col">
+    <div className="min-h-[1100px] flex flex-col h-auto">
       <Navbar busquedaPorNombre={busquedaPorNombre} />
       <div className={s.rgbtop}></div>
 
       <div className="flex justify-center p-8 text-center">
-        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
+        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
           🔥{" "}
-          <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
             {categoria.toUpperCase()}
           </span>{" "}
           🔥
@@ -76,23 +81,23 @@ export const Productos = () => {
       </div>
 
       <div className={s.rgbbot}></div>
-      <div className={`flex ${isMobile ? "flex-col" : "flex-row"} h-auto`}>
+      <div className="flex-grow flex sm:flex-row flex-col h-auto">
         <div
-          className={`${
-            isMobile ? "w-100% h-auto" : "sticky top-0 left-0 h-full"
-          }`}
+          className="sm:w-auto sm:sticky static top-0 left-0 h-full"
+          /*className={`${isMobile ? "w-full" : "sticky top-0 left-0 h-full"}`} */
         >
           <NavbarCat />
         </div>
-        <div class="h-auto w-[3px] bg-[var(--colorLineaSeparadora)]"></div>
-        <div class="p-5 px-[20px] flex flex-wrap gap-5">
+        <div className="h-auto w-[3px] bg-[var(--colorLineaSeparadora)]"></div>
+        <div className="p-5 px-[20px] flex flex-wrap gap-5 w-full">
           {loading ? (
             <div className={s.loader}>
               <Loader />
             </div>
           ) : (
             <>
-              <div class="flex justify-end items-center w-full mb-[20px] gap-[8px] flex-wrap">
+              {/* Filtros centrados en móvil y alineados a la derecha en escritorio */}
+              <div className="DivFiltrosProds flex justify-center lg:justify-end items-center w-full mb-[20px] gap-[8px] flex-wrap">
                 <button
                   onClick={() =>
                     setOrden(orden === "nombre_DESC" ? "" : "nombre_DESC")
@@ -134,7 +139,18 @@ export const Productos = () => {
                   <FaDollarSign className={s.icon} /> Mayor Precio
                 </button>
               </div>
-              <div className="flex flex-wrap justify-center gap-10 lg:gap-20 md:gap-20 p-6">
+
+              {/* Productos centrados en móvil */}
+              <div className="flex flex-wrap justify-center gap-4 lg:gap-10 md:gap-10 p-2 lg:p-6 w-full">
+                {productos.length === 0 && (
+                  <div className="flex flex-col items-center justify-center w-full">
+                    <FaSearch className="text-red-500 text-6xl mb-4" />{" "}
+                    {/* Icono de búsqueda */}
+                    <p className="text-red-500 text-[35px] font-bold text-center py-4">
+                      No hay productos disponibles para su búsqueda
+                    </p>
+                  </div>
+                )}
                 {productos.map((p) => (
                   <Card
                     key={p.id} // Agrega una clave única para cada Card
@@ -147,7 +163,9 @@ export const Productos = () => {
                   />
                 ))}
               </div>
-              <div class="flex justify-center my-5 gap-4 select-none w-full h-[45px]">
+
+              {/* Paginación */}
+              <div className="flex justify-center my-5 gap-4 select-none w-full h-[45px]">
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel="Siguiente"

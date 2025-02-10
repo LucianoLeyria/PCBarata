@@ -4,7 +4,7 @@ export const NavbarCat = () => {
   const [openSidebar, setOpenSidebar] = useState(false); // Estado para controlar el sidebar
 
   return (
-    <div class={openSidebar ? "h-auto" : "h-[50px]"}>
+    <div className={openSidebar ? "h-auto" : "h-[50px]"}>
       <button
         onClick={() => setOpenSidebar(!openSidebar)} // Cambiar el estado al hacer clic
         aria-controls="default-sidebar"

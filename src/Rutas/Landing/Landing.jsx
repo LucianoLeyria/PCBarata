@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import s from "./Landing.module.css";
 import { NavbarCat } from "../../Componentes/NavbarCat/NavbarCat";
 import { Card } from "../../Componentes/Card/Card";
@@ -9,7 +9,7 @@ import { getProductosDestacados } from "../../Servicios/API/FetchProductos.js";
 import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
-  const [loading, setLoader] = useState(false);
+  const [loading, setLoader] = useState(true);
   const [productosDestacados, setProductosDestacados] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640); // Cambia 640 según tu breakpoint
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ export const Landing = () => {
   useEffect(() => {
     getProductosDestacados().then((arrayProductos) => {
       setProductosDestacados(arrayProductos);
+      setLoader(false);
     });
   }, []);
 
@@ -83,9 +84,7 @@ export const Landing = () => {
         </div>
       </div>
 
-      <div className={s.footer}>
-        <Footer />
-      </div>
+      <div className={s.footer}>{loading === false && <Footer />}</div>
       {loading === true ? <Loader /> : null}
     </div>
   );

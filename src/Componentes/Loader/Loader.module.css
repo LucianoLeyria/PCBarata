@@ -36,15 +36,15 @@
 /* Estilos Responsivos */
 @media (max-width: 768px) {
   .loader {
-    width: 15px; /* Aumenta el tamaño del loader en pantallas más pequeñas */
-    height: 15px;
+    width: 7px; /* Aumenta el tamaño del loader en pantallas más pequeñas */
+    height: 7px;
   }
 }
 
 @media (max-width: 480px) {
   .loader {
-    width: 20px; /* Aumenta aún más el tamaño del loader en pantallas pequeñas */
-    height: 20px;
+    width: 7px; /* Aumenta aún más el tamaño del loader en pantallas pequeñas */
+    height: 7px;
   }
 }
 

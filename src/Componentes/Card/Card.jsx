@@ -1,6 +1,5 @@
-import React from "react";
-
-export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
+// eslint-disable-next-line react/prop-types
+export const Card = ({ nombre, precio, img, tienda }) => {
   const datamapTienda = {
     compragamer: "https://imagenes.compragamer.com/assets/logos/logo-fix.png",
     fullhard: "https://fullh4rd.com.ar/img/logo-fh-lg.png",
@@ -12,7 +11,7 @@ export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
   return (
     <div>
       <div className="w-80 h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between transition-transform duration-300 ease-in-out transform hover:scale-105">
-        <a href="#">
+        <a>
           <img
             className="w-full h-[320px] object-contain p-4 rounded-t-lg" // Cambié object-cover por object-contain
             src={img}
@@ -20,7 +19,7 @@ export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
           />
         </a>
         <div className="px-5 pb-5">
-          <a href="#">
+          <a>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {nombre}
             </h5>
@@ -39,7 +38,8 @@ export const Card = ({ id, nombre, precio, img, categoria, tienda }) => {
               {precio}
             </span>
             <a
-              href="#"
+              href="https://www.compragamer.com"
+              target="blank"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Ir a la web
